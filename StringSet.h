@@ -1,8 +1,9 @@
 #pragma once
 
 #include <string>
+#include <iostream>
 
-using std::string;
+//using std::string;
 
 
 class StringSet {
@@ -16,20 +17,18 @@ public:
 		StringSet(const StringSet &s); // 2 Copy Constructor (M)
 		~StringSet(); // 3 Destructor (M)
 
-		StringSet StingSet::operator=(StingSet &other);// 4 Assigment Operator (M)
+		StringSet operator=(const StringSet &other);// 4 Assigment Operator (M)
 		bool insert(std::string in);
 
-		void remove(sd::string in);
+		void remove(std::string in);
 
-		int find(std::string target);// 7 Find (M)
-		int size(const StringSet &in);
+		int find (std::string target) const;// 7 Find (M)
+		int size();
 
-		StirngSet unions(const StringSet &other);// 9 Unions (M)
-		// 10 Intersection
-		// 11 Difference
+		StringSet unions(const StringSet &other);// 9 Unions (M)
+        StringSet intersection(const StringSet &other);
+        StringSet difference(const StringSet &other);
 
 		void expand(); // Helper: expand function (M)
 		void printSet(); // Helper: prints all data in the set (M)
-
-
 };

@@ -19,11 +19,11 @@ StringSet::StringSet(const StringSet &s)
 }
 
 StringSet::~StringSet()
-{ delete data; }
+{ delete[] data; }
 
-StringSet StingSet::operator=(const StingSet &other)
+StringSet StringSet::operator=(const StringSet &other)
 {
-	delete data;
+	delete[] data;
 	maxSize = other.maxSize;
 	curSize = other.curSize;
 	data = new std::string[maxSize];
@@ -34,21 +34,21 @@ StringSet StingSet::operator=(const StingSet &other)
 	return *this;
 }
 
-void StingSet::expand()
+void StringSet::expand()
 {
 	maxSize *= 2;
-	string *newData = new std::string[maxSize];
-	for (int i = 0; i < other.curSize; i++)
+	std::string *newData = new std::string[maxSize];
+	for (int i = 0; i < curSize; i++)
 	{
 		newData[i] = data[i];
 	}
-	delete data;
+	delete[] data;
 	data = newData;
 }
 
-StirngSet StingSet::unions(const StringSet &other)
+StringSet StringSet::unions(const StringSet &other)
 {
-	StringSet out = new StringSet();
+	StringSet out = StringSet();
 
 	for (int i = 0; i < curSize; i++)
 	{
@@ -56,12 +56,12 @@ StirngSet StingSet::unions(const StringSet &other)
 	}
 	for (int j = 0; j < other.curSize; j++)
 	{
-		out.insert(other.data[i]);
+		out.insert(other.data[j]);
 	}
 	return out;
 }
 
-int StingSet::find(std::string target)
+int StringSet::find (std::string target) const
 {
 	for (int i = 0; i < curSize; i++)
 	{
@@ -73,7 +73,7 @@ int StingSet::find(std::string target)
 	return -1;
 }
 
-bool StingSet::insert(std::string in)
+bool StringSet::insert(std::string in)
 {
 	if (find(in) != -1)
 	{
@@ -83,12 +83,12 @@ bool StingSet::insert(std::string in)
 	{
 		expand();
 	}
-	data[curSize - 1] = in;
+	data[curSize] = in;
 	curSize += 1;
 	return true;
 }
 
-void StingSet::remove(std::string in)
+void StringSet::remove(std::string in)
 {
 	int index = find(in);
 	if (index != -1)
@@ -98,20 +98,42 @@ void StingSet::remove(std::string in)
 	}
 }
 
-int StingSet::size(const StringSet &in)
+int StringSet::size()
 {
-	return in.curSize;
+    return curSize;
 }
 
+StringSet StringSet::intersection(const StringSet &other)
+{
+    StringSet out = StringSet();
+    for (int i = 0; i < curSize; ++i)
+    {
+        if (other.find(data[i]) != -1)
+        {
+            out.insert(data[i]);
+        }
+    }
+    return out;
+}
 
-// 10 Intersection
-// 11 Difference
+StringSet StringSet::difference(const StringSet &other)
+{
+    StringSet out = StringSet();
+    for (int i = 0; i < curSize; ++i)
+    {
+        if (other.find(data[i]) == -1)
+        {
+            out.insert(data[i]);
+        }
+    }
+    return out;
+}
 
-void StingSet::printSet()
+void StringSet::printSet()
 {
 	for (int i = 0; i < curSize; i++)
 	{
-		std::cout << data[i];
+		std::cout << data[i] << " ";
 	}
 	std::cout << std::endl;
 }

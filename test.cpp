@@ -1,5 +1,8 @@
 #include "StringSet.h"
 
+using std::cout;
+using std::endl;
+
 void basicTest()
 {
 	StringSet sset1;
@@ -7,6 +10,7 @@ void basicTest()
 	sset1.insert("bat");
 	sset1.insert("rat");
 	cout << "insert success: " << sset1.insert("badger") << endl;
+	sset1.printSet();
 
 	StringSet sset2;
 	sset2.insert("elephant");
@@ -36,9 +40,9 @@ void basicTest()
 	// Use overloaded assignment operator to make a StringSet with sset2 - sset1
 	sset4 = sset2.difference(sset1);
 	cout << "Difference of" << endl;
-	sset1.printSet();
-	cout << "and" << endl;
 	sset2.printSet();
+	cout << "and" << endl;
+	sset1.printSet();
 	sset4.printSet();
 
 	cout << "end basic test" << endl;
@@ -46,7 +50,7 @@ void basicTest()
 
 int		main()
 {
-	StringSet sset1;
+	basicTest();
 
 
 	return 0;
