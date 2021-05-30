@@ -45,13 +45,13 @@ void	StingSet::expand()
 	data = newData;
 }
 
-StingSet::StirngSet		unions(const StringSet& other)
+StirngSet		StingSet::unions(const StringSet& other)
 {
 	StringSet	out = new StringSet();
 
 	for (int i = 0; i < curSize; i++)
 	{
-			out.insert(data[i]);
+		out.insert(data[i]);
 	}
 	for (int j = 0; j < other.curSize; j++)
 	{
@@ -60,7 +60,7 @@ StingSet::StirngSet		unions(const StringSet& other)
 	return out;
 }
 
-int					find(std::string target)
+int					StingSet::find(std::string target)
 {
 	for (int i = 0; i < curSize; i++)
 	{
@@ -77,3 +77,8 @@ int					find(std::string target)
 // 8 Size
 // 10 Intersection
 // 11 Difference
+
+void				StingSet::printSet()
+{
+
+}

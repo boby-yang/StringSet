@@ -24,7 +24,7 @@ public:
 		// 11 Difference
 
 		void				expand(); // Helper: expand function (M)
-		
+		void				printSet(); // Helper: prints all data in the set (M)
 
 
 };
