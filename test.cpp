@@ -18,12 +18,28 @@ void basicTest()
 
 	// Use the copy constructor to build a StringSet with sset1 U sset2
 	StringSet sset3(sset1.unions(sset2));
+	cout << "Union of" << endl;
+	sset1.printSet();
+	cout << "and" << endl;
+	sset2.printSet();
+	sset3.printSet();
 
-	// Use overloaded assignment operator to make a StringSet with sset2 int sset1
+	// Testing intersection
 	StringSet sset4;
 	sset4 = sset2.intersection(sset1);
+	cout << "Intersection of" << endl;
+	sset1.printSet();
+	cout << "and" << endl;
+	sset2.printSet();
+	sset4.printSet();
+
 	// Use overloaded assignment operator to make a StringSet with sset2 - sset1
 	sset4 = sset2.difference(sset1);
+	cout << "Difference of" << endl;
+	sset1.printSet();
+	cout << "and" << endl;
+	sset2.printSet();
+	sset4.printSet();
 
 	cout << "end basic test" << endl;
 }
