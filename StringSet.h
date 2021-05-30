@@ -25,8 +25,8 @@ public:
 		int size(const StringSet &in);
 
 		StirngSet unions(const StringSet &other);// 9 Unions (M)
-		// 10 Intersection
-		// 11 Difference
+        StringSet intersection(const StringSet &other);
+        StringSet difference(const StringSet &other);
 
 		void expand(); // Helper: expand function (M)
 		void printSet(); // Helper: prints all data in the set (M)
