@@ -51,11 +51,13 @@ StingSet::StirngSet		unions(const StringSet& other)
 
 	for (int i = 0; i < curSize; i++)
 	{
-		if (out.find(data[i]) != -1)
-		{
-
-		}
+			out.insert(data[i]);
 	}
+	for (int j = 0; j < other.curSize; j++)
+	{
+		out.insert(other.data[i]);
+	}
+	return out;
 }
 
 int					find(std::string target)
