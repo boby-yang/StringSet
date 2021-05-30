@@ -70,8 +70,36 @@ int					find(std::string target)
 	return -1;
 }
 
-// 5 Insert
-// 6 Remove
-// 8 Size
+bool insert(std::string in)
+{
+    if (find(in) != -1)
+    {
+        return false;
+    }
+    if (curSize == maxSize)
+    {
+        expand();
+    }
+    data[curSize - 1] = in;
+    curSize += 1;
+    return true;
+}
+
+void remove(std::string in)
+{
+    int index = find(in);
+    if (index != -1)
+    {
+        data[index] = data[curSize - 1];
+        curSize -= 1;
+    }
+}
+
+int size(const StringSet& in)
+{
+    return in.curSize;
+}
+
+
 // 10 Intersection
 // 11 Difference

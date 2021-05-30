@@ -15,15 +15,15 @@ public:
 		~StringSet(); // 3 Destructor (M)
 
 		StringSet		StingSet::operator= (StingSet& other);// 4 Assigment Operator (M)
-		// 5 Insert
-		// 6 Remove
-		int					find(std::string target);// 7 Find (M)
-		// 8 Size
+		bool            insert(std::string in);
+        void            remove(sd::string in);
+		int				find(std::string target);// 7 Find (M)
+        int             size(const StringSet& in);
 		StirngSet		unions(const StringSet& other);// 9 Unions (M)
 		// 10 Intersection
 		// 11 Difference
 
-		void				expand(); // Helper: expand function (M)
+		void			expand(); // Helper: expand function (M)
 		
 
 
