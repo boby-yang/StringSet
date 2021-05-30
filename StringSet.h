@@ -5,9 +5,9 @@ using std::string;
 
 class						StringSet {
 private:
-		int 				maxSize;
-		int 				curSize;
-		string*			data;
+		int 						maxSize;
+		int 						curSize;
+		std::string*		data;
 
 public:
 		StringSet(); // 1 Default Constructor (M)
@@ -17,7 +17,7 @@ public:
 		StringSet		StingSet::operator= (StingSet& other);// 4 Assigment Operator (M)
 		// 5 Insert
 		// 6 Remove
-		// 7 Find (M)
+		int					find(std::string target);// 7 Find (M)
 		// 8 Size
 		StirngSet		unions(const StringSet& other);// 9 Unions (M)
 		// 10 Intersection
