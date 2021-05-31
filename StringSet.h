@@ -13,19 +13,19 @@ private:
 		std::string *data;
 
 public:
-		StringSet(); // 1 Default Constructor (M)
-		StringSet(const StringSet &s); // 2 Copy Constructor (M)
-		~StringSet(); // 3 Destructor (M)
+		StringSet();
+		StringSet(const StringSet &s);
+		~StringSet();
 
-		StringSet operator=(const StringSet &other);// 4 Assigment Operator (M)
+		StringSet operator=(const StringSet &other);
 		bool insert(std::string in);
 
 		void remove(std::string in);
 
-		int find (std::string target) const;// 7 Find (M)
+		int find (std::string target) const;
 		int size();
 
-		StringSet unions(const StringSet &other);// 9 Unions (M)
+		StringSet unions(const StringSet &other);
         StringSet intersection(const StringSet &other);
         StringSet difference(const StringSet &other);
 
