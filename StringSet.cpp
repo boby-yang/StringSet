@@ -1,5 +1,12 @@
 #include "StringSet.h"
 
+/*
+ * Default Constructor of the StringSet
+ * Param: None
+ * Post: initial maxSize will be set to 2,
+ * 		Data will be allocated to maxSize, and curSize
+ * 		will be set to 0
+ */
 StringSet::StringSet()
 {
 	maxSize = 2;
@@ -7,6 +14,12 @@ StringSet::StringSet()
 	data = new std::string[maxSize];
 }
 
+/*
+ * Alternative constructor of the StringSet with parameter
+ * Param: const reference of a StringSet
+ * Post: Produces a deep copy of the StringSet parameter,
+ * 		 maxSize, curSize, and data will all be copied
+ */
 StringSet::StringSet(const StringSet &s)
 {
 	maxSize = s.maxSize;
@@ -18,9 +31,21 @@ StringSet::StringSet(const StringSet &s)
 	}
 }
 
+/*
+ * Destructor of the StringSet
+ * Param: None
+ * Post: all allocated memory of the data field will be freed
+ */
 StringSet::~StringSet()
 { delete[] data; }
 
+/*
+ * Overloaded assignment operator for StringSets
+ * Param: const reference of a StringSet
+ * Post: original data will be deleted and the field
+ * 		 values will be replaced by that of the parameter's
+ * 		 and a new copy of its data field
+ */
 StringSet StringSet::operator=(const StringSet &other)
 {
 	delete[] data;
